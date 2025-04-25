@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+</head>
+<body>
+    <h2>Регистрация</h2>
+    <form method="POST">
+        <label for="username">Потребителско име:</label>
+        <input type="text" name="username" required><br>
+
+        <label for="email">Имейл:</label>
+        <input type="email" name="email" required><br>
+
+        <label for="password">Парола:</label>
+        <input type="password" name="password" required><br>
+
+        <label for="role">Роля:</label>
+        <select name="role" required>
+            <option value="student">Студент</option>
+            <option value="teacher">Учител</option>
+            <option value="admin">Администратор</option>
+        </select><br>
+
+        <label for="level">Ниво:</label>
+        <input type="text" name="level"><br>
+
+        <label for="group">Група:</label>
+        <input type="text" name="group"><br>
+
+        <button type="submit">Регистрирай се</button>
+    </form>
+
+    <a href="{{ url_for('auth.login') }}">Влезте в профила си</a>
+</body>
+</html>
