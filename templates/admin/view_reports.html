@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Преглед на отчети</title>
+</head>
+<body>
+    <h1>Преглед на отчети</h1>
+
+    <h2>Статистики по задачи</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Заглавие на задача</th>
+                <th>Общо подадени решения</th>
+                <th>Средна оценка</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.title }}</td>
+                    <td>{{ task.solutions|length }}</td>
+                    <td>{{ task.solutions | map(attribute='grade') | avg }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('admin.admin_panel') }}">Назад към админ панела</a>
+</body>
+</html>
