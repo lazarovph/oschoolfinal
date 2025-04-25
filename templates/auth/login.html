@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+</head>
+<body>
+    <h2>Вход в профила</h2>
+    <form method="POST">
+        <label for="email">Имейл:</label>
+        <input type="email" name="email" required><br>
+
+        <label for="password">Парола:</label>
+        <input type="password" name="password" required><br>
+
+        <button type="submit">Влезте</button>
+    </form>
+
+    <a href="{{ url_for('auth.register') }}">Нямате профил? Регистрирайте се</a>
+</body>
+</html>
