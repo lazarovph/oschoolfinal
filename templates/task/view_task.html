@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Преглед на задача</title>
+</head>
+<body>
+    <h1>{{ task.title }}</h1>
+    <p>{{ task.description }}</p>
+    <p>Срок: {{ task.due_date }}</p>
+    <p>Създадено от: {{ task.created_by }}</p>
+
+    {% if user.role == 'student' %}
+        <h2>Качете решение</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <textarea name="content" required></textarea><br>
+            <button type="submit">Качете решението</button>
+        </form>
+    {% endif %}
+
+    <a href="{{ url_for('task.tasks') }}">Назад към задачите</a>
+</body>
+</html>
