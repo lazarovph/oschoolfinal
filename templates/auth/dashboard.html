@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Табло</title>
+</head>
+<body>
+    <h1>Добре дошли в таблото!</h1>
+    <p>Здравейте, {{ user.username }}!</p>
+    <p>Роля: {{ user.role }}</p>
+
+    {% if user.role == 'teacher' %}
+        <a href="{{ url_for('task.tasks') }}">Създаване на задачи</a><br>
+    {% endif %}
+
+    {% if user.role == 'admin' %}
+        <a href="{{ url_for('admin.admin_panel') }}">Админ панел</a><br>
+    {% endif %}
+
+    <a href="{{ url_for('auth.logout') }}">Изход</a>
+</body>
+</html>
